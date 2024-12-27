@@ -65,5 +65,40 @@
 1. **Клонирование репозитория**:
    Клонируйте репозиторий с GitHub:
 
-  ```bash
+  ```
    git clone https://github.com/yourusername/notes-service.git
+
+  ```
+2. Сборка и запуск: Перейдите в каталог с проектом и выполните команду для сборки и запуска приложения:
+cd notes-service
+dotnet build
+dotnet run
+Swagger UI: После запуска сервиса откройте Swagger UI в браузере для просмотра документации и тестирования API. Обычно он доступен по адресу: http://localhost:5000/swagger.
+
+3. Настройка Telegram API: Для отправки уведомлений через Telegram необходимо настроить ключ API и ID чата. Эти данные можно указать в конфигурации приложения (например, в appsettings.json).
+{
+  "Telegram": {
+    "ApiKey": "your-telegram-api-key",
+    "ChatId": "your-telegram-chat-id"
+  }
+}
+
+4. Пример запросов:
+Добавление заметки:
+POST /api/notes
+{
+  "title": "Заметка 1",
+  "content": "Это первая заметка"
+}
+Получение списка заметок:
+GET /api/notes
+Получение заметки по ID:
+GET /api/notes/1
+Обновление заметки:
+PUT /api/notes/1
+{
+  "title": "Обновленная заметка",
+  "content": "Это обновленная заметка"
+}
+Удаление заметки:
+DELETE /api/notes/1
