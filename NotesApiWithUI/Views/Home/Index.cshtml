@@ -1,0 +1,32 @@
+﻿@model List<NotesApiWithUI.Models.Note>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes</title>
+</head>
+<body>
+    <h1>Notes</h1>
+
+    <form asp-action="Add" method="post">
+        <input type="text" name="Title" placeholder="Title" required />
+        <textarea name="Content" placeholder="Content"></textarea>
+        <button type="submit">Add Note</button>
+    </form>
+    <ul>
+        @foreach (var note in Model)
+        {
+            <li>
+                <h3>@note.Title</h3>
+                <p>@note.Content</p>
+                <p><small>@note.CreatedAt</small></p>
+                <form asp-action="Delete" method="post" style="display:inline;">
+                    <input type="hidden" name="id" value="@note.Id" />
+                    <button type="submit">Delete</button>
+                </form>
+                <a asp-action="Edit" asp-route-id="@note.Id">Edit</a>
+            </li>
+        }
+    </ul>
+</body>
+</html>

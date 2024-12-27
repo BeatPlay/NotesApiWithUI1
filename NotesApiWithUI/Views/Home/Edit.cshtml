@@ -1,0 +1,24 @@
+﻿@model NotesApiWithUI.Models.Note
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Note</title>
+</head>
+<body>
+    <h1>Edit Note</h1>
+
+    <form asp-action="Edit" method="post">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <label for="Title">Title</label>
+        <input type="text" name="Title" value="@Model.Title" required />
+        <br />
+        <label for="Content">Content</label>
+        <textarea name="Content" required>@Model.Content</textarea>
+        <br />
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <a asp-action="Index">Back to Notes</a>
+</body>
+</html>
