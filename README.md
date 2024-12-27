@@ -65,5 +65,5 @@
 1. **Клонирование репозитория**:
    Клонируйте репозиторий с GitHub:
 
-   ```bash
+  ```bash
    git clone https://github.com/yourusername/notes-service.git
